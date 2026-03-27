@@ -205,6 +205,67 @@ const blogData: Record<string, any> = {
         </div>
       </>
     )
+  },
+  'why-speed-is-revenue': {
+    title: 'Why Speed is Revenue',
+    date: 'OCT 12, 2024',
+    author: 'OK VALLEY',
+    image: 'https://picsum.photos/1920/1080?random=11',
+    tags: ['Performance', 'Revenue', 'Operations'],
+    toc: ['Speed changes conversion', 'Response time compounds', 'What to fix first'],
+    content: (
+      <>
+        <p className="lead text-2xl font-serif leading-relaxed mb-12 first-letter:text-6xl first-letter:font-bold first-letter:mr-3 first-letter:float-left">
+          In service businesses, speed is not a nice-to-have metric. It is the mechanism that decides whether demand turns into booked work or vanishes into the market.
+        </p>
+        <h2 className="font-sans text-3xl font-bold uppercase mt-16 mb-8">Speed changes conversion</h2>
+        <p className="mb-8 font-serif text-brand-muted leading-relaxed">
+          Faster load times reduce bounce. Faster call response reduces abandonment. Faster follow-up raises show rates. The commercial effect is simple: the business that responds first usually gets the chance to earn trust first.
+        </p>
+        <h2 className="font-sans text-3xl font-bold uppercase mt-16 mb-8">Response time compounds</h2>
+        <p className="mb-8 font-serif text-brand-muted leading-relaxed">
+          Small delays stack. A slow site creates fewer leads. Slow routing creates fewer booked calls. Slow follow-up lowers close rates. The leakage shows up everywhere, which is why operators often underestimate it.
+        </p>
+        <blockquote className="border-l-4 border-brand-accent pl-8 italic text-2xl my-12 font-serif">
+          "Speed is not just UX. It is sales infrastructure."
+        </blockquote>
+        <h2 className="font-sans text-3xl font-bold uppercase mt-16 mb-8">What to fix first</h2>
+        <ul className="list-disc pl-6 space-y-4 mb-8 font-serif text-brand-muted">
+          <li>Cut page-weight and improve load time on the highest-intent pages.</li>
+          <li>Automate missed-call response so leads get a reply immediately.</li>
+          <li>Reduce form friction to shorten the path from visit to inquiry.</li>
+        </ul>
+      </>
+    )
+  },
+  'seo-is-broken': {
+    title: 'SEO is Broken. Here is the Fix.',
+    date: 'SEP 14, 2024',
+    author: 'OK VALLEY',
+    image: 'https://picsum.photos/1920/1080?random=13',
+    tags: ['Strategy', 'SEO', 'Demand Capture'],
+    toc: ['The old playbook', 'What search rewards now', 'The practical fix'],
+    content: (
+      <>
+        <p className="lead text-2xl font-serif leading-relaxed mb-12 first-letter:text-6xl first-letter:font-bold first-letter:mr-3 first-letter:float-left">
+          SEO is not dead. What is dead is the habit of publishing generic, undifferentiated pages and expecting rankings to appear because the keywords are technically present.
+        </p>
+        <h2 className="font-sans text-3xl font-bold uppercase mt-16 mb-8">The old playbook</h2>
+        <p className="mb-8 font-serif text-brand-muted leading-relaxed">
+          Thin service pages, vague blog content, and recycled agency copy used to produce enough signal to rank. That margin is gone. Search now filters harder because generic pages are abundant.
+        </p>
+        <h2 className="font-sans text-3xl font-bold uppercase mt-16 mb-8">What search rewards now</h2>
+        <p className="mb-8 font-serif text-brand-muted leading-relaxed">
+          The pages that still perform are the ones with clear intent matching, local proof, sharp structure, and real operational detail. They answer the job the user is trying to complete.
+        </p>
+        <h2 className="font-sans text-3xl font-bold uppercase mt-16 mb-8">The practical fix</h2>
+        <ol className="list-decimal pl-6 space-y-4 mb-8 font-serif text-brand-muted">
+          <li>Build pages around real service intent instead of broad vanity terms.</li>
+          <li>Add proof that is local, specific, and commercially relevant.</li>
+          <li>Improve performance so the page experience supports the ranking.</li>
+        </ol>
+      </>
+    )
   }
 };
 
@@ -262,7 +323,7 @@ const BlogPost: React.FC = () => {
       </Section>
 
       <div className="w-full h-[60vh] overflow-hidden relative mb-24">
-         <img src={post.image} className="w-full h-full object-cover" />
+         <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
       </div>
 
       <Section fullWidth className="grid grid-cols-1 md:grid-cols-12 gap-12 px-6 md:px-12">
@@ -271,13 +332,22 @@ const BlogPost: React.FC = () => {
                <h4 className="font-sans font-bold uppercase mb-4 text-xs tracking-widest text-brand-accent">Table of Contents</h4>
                <ul className="space-y-2 text-sm text-brand-muted/60 font-medium">
                   {post.toc ? post.toc.map((item: string, i: number) => (
-                     <li key={i} className="hover:text-brand-ink cursor-pointer transition-colors">{item}</li>
+                     <li key={i} className="hover:text-brand-ink transition-colors">{item}</li>
                   )) : (
                      <li className="text-brand-ink">Read Full Article</li>
                   )}
                </ul>
                <div className="mt-12">
-                  <button className="flex items-center gap-2 text-xs font-bold font-sans uppercase tracking-widest hover:text-brand-accent">
+                  <button
+                    className="flex items-center gap-2 text-xs font-bold font-sans uppercase tracking-widest hover:text-brand-accent"
+                    onClick={() => {
+                      if (navigator.share) {
+                        navigator.share({ title: post.title, url: window.location.href }).catch(() => {});
+                        return;
+                      }
+                      navigator.clipboard?.writeText(window.location.href);
+                    }}
+                  >
                      <Share2 size={14} /> Share Article
                   </button>
                </div>

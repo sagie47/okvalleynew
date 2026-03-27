@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section, Heading, Text, Button, Reveal, PageHeader } from '../components/Common';
 import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
@@ -40,6 +40,22 @@ const articles = [
 
 const Blog: React.FC = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubscribe = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!email.trim()) {
+      setStatus('error');
+      return;
+    }
+
+    const signupUrl = `mailto:info@okvalleyweb.com?subject=${encodeURIComponent('Newsletter signup')}&body=${encodeURIComponent(`Please add this email to the newsletter list: ${email.trim()}`)}`;
+    window.location.href = signupUrl;
+    setStatus('success');
+    setEmail('');
+  };
 
   return (
     <>
@@ -55,9 +71,8 @@ const Blog: React.FC = () => {
             onClick={() => navigate(`/blog/${article.slug}`)}
             className="group relative border-b border-brand-ink hover:bg-brand-ink hover:text-white transition-colors duration-300 cursor-pointer overflow-hidden"
           >
-            {/* Hover Image Reveal */}
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 hidden md:block mix-blend-difference">
-               <img src={article.image} className="w-full h-full object-cover grayscale" />
+               <img src={article.image} alt={article.title} className="w-full h-full object-cover grayscale" />
             </div>
 
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-12 md:py-16 grid grid-cols-12 items-center relative z-20">
@@ -85,10 +100,32 @@ const Blog: React.FC = () => {
       <Section className="bg-brand-muted/5 text-center py-24">
          <Heading level={2} className="mb-8">Get the newsletter.</Heading>
          <Text className="mb-8">No spam. Only high-value tactics for local trades.</Text>
-         <div className="max-w-md mx-auto flex gap-4">
-            <input type="email" placeholder="EMAIL ADDRESS" className="flex-grow bg-transparent border-b border-brand-ink py-2 font-sans uppercase focus:outline-none" />
-            <Button variant="ghost">Subscribe</Button>
-         </div>
+         <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+            <div className="flex gap-4">
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                  if (status !== 'idle') {
+                    setStatus('idle');
+                  }
+                }}
+                placeholder="EMAIL ADDRESS"
+                className="flex-grow bg-transparent border-b border-brand-ink py-2 font-sans uppercase focus:outline-none"
+              />
+              <Button type="submit" variant="ghost" disabled={!email.trim()}>
+                Subscribe
+              </Button>
+            </div>
+            {status === 'success' && (
+              <p className="mt-4 text-sm font-sans text-brand-muted">Your email client opened with a prefilled signup request.</p>
+            )}
+            {status === 'error' && (
+              <p className="mt-4 text-sm font-sans text-red-600">Enter an email address to subscribe.</p>
+            )}
+         </form>
       </Section>
     </>
   );

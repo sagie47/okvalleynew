@@ -88,9 +88,8 @@ const Services: React.FC = () => {
             onClick={() => navigate(`/services/${service.id}`)}
             className="group relative border-b border-brand-ink hover:bg-brand-ink hover:text-white transition-colors duration-300 cursor-pointer overflow-hidden"
           >
-            {/* Hover Image Reveal */}
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[500px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30 hidden md:block mix-blend-difference">
-               <img src={service.image} className="w-full h-full object-cover grayscale" />
+               <img src={service.image} alt={service.title} className="w-full h-full object-cover grayscale" />
             </div>
 
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-20">

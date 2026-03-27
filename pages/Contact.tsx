@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heading, Text, Button, Reveal } from '../components/Common';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const Contact: React.FC = () => {
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+    const firstName = String(form.get('firstName') ?? '').trim();
+    const lastName = String(form.get('lastName') ?? '').trim();
+    const email = String(form.get('email') ?? '').trim();
+    const phone = String(form.get('phone') ?? '').trim();
+    const inquiry = String(form.get('inquiry') ?? '').trim();
+    const message = String(form.get('message') ?? '').trim();
+
+    if (!firstName || !lastName || !email || !inquiry || !message) {
+      setStatus('error');
+      return;
+    }
+
+    const body = [
+      `Name: ${firstName} ${lastName}`,
+      `Email: ${email}`,
+      `Phone: ${phone || 'Not provided'}`,
+      `Inquiry: ${inquiry}`,
+      '',
+      message,
+    ].join('\n');
+
+    window.location.href = `mailto:info@okvalleyweb.com?subject=${encodeURIComponent(`New website inquiry: ${inquiry}`)}&body=${encodeURIComponent(body)}`;
+    setStatus('success');
+    event.currentTarget.reset();
+  };
+
   return (
     <div className="min-h-screen flex flex-col lg:flex-row pt-24 bg-white relative overflow-hidden">
       {/* Left Info */}
@@ -42,21 +74,21 @@ const Contact: React.FC = () => {
         
         <div className="mt-16 space-y-4 relative z-10">
            <Reveal delay={100}>
-             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 cursor-pointer group" onClick={() => window.location.href='mailto:info@okvalleyweb.com'}>
+             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 group">
                <span className="block font-sans text-sm font-medium tracking-tight text-white/50 uppercase tracking-widest mb-2">Email Us</span>
                <a href="mailto:info@okvalleyweb.com" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">info@okvalleyweb.com</a>
              </div>
            </Reveal>
            <Reveal delay={200}>
-             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 cursor-pointer group" onClick={() => window.location.href='tel:+17787694402'}>
+             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 group">
                <span className="block font-sans text-sm font-medium tracking-tight text-white/50 uppercase tracking-widest mb-2">Call Us</span>
                <a href="tel:+17787694402" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">(778) 769-4402</a>
              </div>
            </Reveal>
            <Reveal delay={300}>
-             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 cursor-pointer group" onClick={() => window.open('https://cal.com/okvalley/30min', '_blank')}>
+             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 group">
                <span className="block font-sans text-sm font-medium tracking-tight text-white/50 uppercase tracking-widest mb-2">Book a Call</span>
-               <span className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">Schedule 30-Min Discovery</span>
+               <a href="https://cal.com/okvalley/30min" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">Schedule 30-Min Discovery</a>
              </div>
            </Reveal>
         </div>
@@ -69,24 +101,24 @@ const Contact: React.FC = () => {
              <Heading level={2} className="tracking-tight mb-4">Send a Message</Heading>
              <p className="text-brand-muted font-sans text-lg">Fill out the form below and we'll get back to you to discuss your business goals.</p>
           </div>
-          <form className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                <div className="group relative">
-                 <input type="text" placeholder="First Name" className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
+                 <input type="text" name="firstName" placeholder="First Name" className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
                </div>
                <div className="group relative">
-                 <input type="text" placeholder="Last Name" className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
+                 <input type="text" name="lastName" placeholder="Last Name" className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
                </div>
             </div>
             <div className="group relative">
-              <input type="email" placeholder="Email Address" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
+              <input type="email" name="email" placeholder="Email Address" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
             </div>
             <div className="group relative">
-               <input type="tel" placeholder="Phone Number" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
+               <input type="tel" name="phone" placeholder="Phone Number" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
             </div>
             <div className="group relative">
-              <select className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black appearance-none rounded-none text-brand-muted focus:text-brand-ink transition-colors cursor-pointer">
-                 <option value="" disabled selected>What are you interested in?</option>
+              <select name="inquiry" defaultValue="" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black appearance-none rounded-none text-brand-muted focus:text-brand-ink transition-colors cursor-pointer">
+                 <option value="" disabled>What are you interested in?</option>
                  <option value="ai" className="text-base font-sans">AI Lead Systems</option>
                  <option value="web" className="text-base font-sans">Websites</option>
                  <option value="seo" className="text-base font-sans">SEO & Search</option>
@@ -95,10 +127,16 @@ const Contact: React.FC = () => {
               </select>
             </div>
             <div className="group relative">
-               <textarea placeholder="Tell us about your business" rows={4} className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted resize-none transition-colors"></textarea>
+               <textarea name="message" placeholder="Tell us about your business" rows={4} className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted resize-none transition-colors"></textarea>
             </div>
             
-            <Button variant="primary" className="w-full justify-center py-6 text-lg mt-8" icon>Send Message</Button>
+            <Button type="submit" variant="primary" className="w-full justify-center py-6 text-lg mt-8" icon>Send Message</Button>
+            {status === 'success' && (
+              <p className="text-sm font-sans text-brand-muted">Your email client opened with a prefilled inquiry.</p>
+            )}
+            {status === 'error' && (
+              <p className="text-sm font-sans text-red-600">Complete the required fields before submitting.</p>
+            )}
           </form>
         </Reveal>
       </div>

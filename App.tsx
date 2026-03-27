@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { RoutePath } from './types';
 
@@ -24,6 +24,16 @@ const ScrollToTop = () => {
   return null;
 };
 
+const NotFound: React.FC = () => (
+  <div className="min-h-[60vh] flex items-center justify-center bg-white px-6">
+    <div className="text-center">
+      <h1 className="text-4xl md:text-6xl font-sans font-semibold tracking-tight mb-4">404</h1>
+      <p className="text-brand-muted font-sans mb-8">That page does not exist.</p>
+      <Navigate to={RoutePath.HOME} replace />
+    </div>
+  </div>
+);
+
 const App: React.FC = () => {
   return (
     <HashRouter>
@@ -40,6 +50,7 @@ const App: React.FC = () => {
           <Route path={RoutePath.PRICING} element={<Pricing />} />
           <Route path={RoutePath.ABOUT} element={<About />} />
           <Route path={RoutePath.CONTACT} element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </HashRouter>

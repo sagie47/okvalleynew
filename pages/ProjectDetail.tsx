@@ -644,7 +644,7 @@ const ProjectDetail: React.FC = () => {
                <div>
                   <div className="flex items-center gap-4 mb-6">
                      <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] border border-brand-ink px-2 py-1">
-                        Case Study 00{id}
+                        Case Study {String(Object.keys(projectData).indexOf(id ?? '') + 1).padStart(2, '0')}
                      </span>
                      <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-brand-accent">
                         {project.category}
@@ -664,7 +664,7 @@ const ProjectDetail: React.FC = () => {
       {/* Hero Image */}
       <div className="w-full h-[60vh] md:h-[80vh] overflow-hidden relative group">
          <Reveal className="h-full w-full">
-            <img src={project.heroImage} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
+            <img src={project.heroImage} alt={project.title} className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105" />
             <div className="absolute inset-0 bg-brand-ink/10"></div>
          </Reveal>
       </div>
@@ -725,7 +725,7 @@ const ProjectDetail: React.FC = () => {
                {project.gallery.map((img: string, i: number) => (
                   <Reveal key={i} delay={300 + (i * 100)} className={i % 2 !== 0 ? 'md:mt-12' : ''}>
                      <div className="aspect-[3/4] overflow-hidden border border-brand-muted/20 relative group">
-                        <img src={img} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" />
+                        <img src={img} alt={`${project.title} gallery image ${i + 1}`} className="w-full h-full object-cover transition-all duration-700 grayscale group-hover:grayscale-0 group-hover:scale-110" />
                         <div className="absolute bottom-4 left-4 bg-white px-3 py-1 text-[10px] font-sans font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                            Figure 0.{i+1}
                         </div>
