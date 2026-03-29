@@ -44,6 +44,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { label: 'Agencies', path: RoutePath.AGENCIES },
     { label: 'Demos', path: RoutePath.DEMOS },
     { label: 'Work', path: RoutePath.WORK },
     { label: 'Services', path: RoutePath.SERVICES },
@@ -157,6 +158,7 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <h4 className="text-sm font-medium text-brand-muted tracking-tight">Explore</h4>
             <ul className="space-y-3 font-sans text-base">
+              <li><NavLink to={RoutePath.AGENCIES} className="text-brand-ink hover:opacity-70 transition-opacity">Agencies</NavLink></li>
               <li><NavLink to={RoutePath.DEMOS} className="text-brand-ink hover:opacity-70 transition-opacity">Workflow Demos</NavLink></li>
               <li><NavLink to={RoutePath.WORK} className="text-brand-ink hover:opacity-70 transition-opacity">Work</NavLink></li>
               <li><NavLink to={RoutePath.SERVICES} className="text-brand-ink hover:opacity-70 transition-opacity">Services</NavLink></li>

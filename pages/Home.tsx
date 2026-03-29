@@ -109,11 +109,11 @@ const Home: React.FC = () => {
                     See Workflow Demos
                   </Button>
                   <Button
-                    to={RoutePath.PRICING}
+                    to={RoutePath.AGENCIES}
                     className="bg-transparent text-white border border-white/20 hover:bg-white/10"
-                    onClick={() => trackEvent('homepage_secondary_cta', { destination: 'pricing' })}
+                    onClick={() => trackEvent('homepage_secondary_cta', { destination: 'agencies' })}
                   >
-                    Review Sprint Models
+                    Agency Sprint
                   </Button>
                 </div>
               </Reveal>
@@ -157,18 +157,24 @@ const Home: React.FC = () => {
             <div className="rounded-3xl border border-black/5 bg-brand-muted/5 p-8 h-full">
               <span className="block text-[10px] uppercase tracking-widest text-brand-muted mb-4">Lane 01</span>
               <h3 className="text-3xl font-sans font-medium tracking-tight text-brand-ink mb-4">For marketing agencies</h3>
-              <Text className="max-w-none">
+              <Text className="max-w-none mb-8">
                 White-label AI execution systems for agencies that need more than GoHighLevel-style automation. We build client reporting operators, QA flows, research agents, internal ops systems, and delivery accelerators.
               </Text>
+              <Button to={RoutePath.AGENCIES} variant="link" icon>
+                Review the agency lane
+              </Button>
             </div>
           </Reveal>
           <Reveal delay={100}>
             <div className="rounded-3xl border border-black/5 bg-brand-muted/5 p-8 h-full">
               <span className="block text-[10px] uppercase tracking-widest text-brand-muted mb-4">Lane 02</span>
               <h3 className="text-3xl font-sans font-medium tracking-tight text-brand-ink mb-4">For businesses</h3>
-              <Text className="max-w-none">
+              <Text className="max-w-none mb-8">
                 Custom workflow agents for teams that need intake automation, browser-based execution, client communication systems, and operational follow-through beyond simple triggers and canned sequences.
               </Text>
+              <Button to={RoutePath.SERVICES} variant="link" icon>
+                Review business systems
+              </Button>
             </div>
           </Reveal>
         </div>

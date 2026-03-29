@@ -7,6 +7,7 @@ import { AnalyticsBootstrap } from './src/analytics';
 // Pages
 import Demos from './pages/Demos';
 import Home from './pages/Home';
+import Agencies from './pages/Agencies';
 import Work from './pages/Work';
 import ProjectDetail from './pages/ProjectDetail';
 import Services from './pages/Services';
@@ -46,6 +47,7 @@ const App: React.FC = () => {
       <Layout>
         <Routes>
           <Route path={RoutePath.HOME} element={<Home />} />
+          <Route path={RoutePath.AGENCIES} element={<Agencies />} />
           <Route path={RoutePath.DEMOS} element={<Demos />} />
           <Route path={RoutePath.WORK} element={<Work />} />
           <Route path="/work/:id" element={<ProjectDetail />} />

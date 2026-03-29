@@ -60,6 +60,9 @@ const Pricing: React.FC = () => {
                         </li>
                       ))}
                     </ul>
+                    <Button to={RoutePath.AGENCIES} variant="secondary" className="mt-8 bg-white text-brand-ink hover:bg-white/90 w-full justify-center">
+                      Review the agency lane
+                    </Button>
                   </div>
                 </div>
               </Reveal>
@@ -147,8 +150,8 @@ const Pricing: React.FC = () => {
                 <p className="font-sans text-brand-muted leading-relaxed mb-8">
                   Add more operators for reporting, QA, onboarding, research, client communication, and internal delivery systems.
                 </p>
-                <Button to={RoutePath.DEMOS} variant="outline" className="w-full justify-center">
-                  See how the system works
+                <Button to={RoutePath.AGENCIES} variant="outline" className="w-full justify-center">
+                  Review agency expansion
                 </Button>
               </div>
             </Reveal>
