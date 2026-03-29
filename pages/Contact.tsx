@@ -67,7 +67,7 @@ const Contact: React.FC = () => {
               <span className="text-white/50">Talk</span>
             </Heading>
             <Text className="text-white/70 max-w-md text-lg">
-              Reach out to discuss how we can help your business grow. We respond to all inquiries within 24 hours.
+              Reach out to discuss how we design growth systems—not one-off tactics. We respond to all inquiries within 24 hours.
             </Text>
           </Reveal>
         </div>
@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
            <Reveal delay={300}>
              <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 group">
                <span className="block font-sans text-sm font-medium tracking-tight text-white/50 uppercase tracking-widest mb-2">Book a Call</span>
-               <a href="https://cal.com/okvalley/30min" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">Schedule 30-Min Discovery</a>
+               <a href="https://cal.com/okvalley/30min" target="_blank" rel="noreferrer" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">Schedule a Discovery on System Design</a>
              </div>
            </Reveal>
         </div>
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
         <Reveal delay={200}>
           <div className="mb-16">
              <Heading level={2} className="tracking-tight mb-4">Send a Message</Heading>
-             <p className="text-brand-muted font-sans text-lg">Fill out the form below and we'll get back to you to discuss your business goals.</p>
+             <p className="text-brand-muted font-sans text-lg">Tell us your current lead flow, where it leaks, and your target outcomes. We'll map it into a practical system plan.</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -117,12 +117,12 @@ const Contact: React.FC = () => {
                <input type="tel" name="phone" placeholder="Phone Number" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
             </div>
             <div className="group relative">
-              <select name="inquiry" defaultValue="" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black appearance-none rounded-none text-brand-muted focus:text-brand-ink transition-colors cursor-pointer">
+                <select name="inquiry" defaultValue="" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black appearance-none rounded-none text-brand-muted focus:text-brand-ink transition-colors cursor-pointer">
                  <option value="" disabled>What are you interested in?</option>
                  <option value="ai" className="text-base font-sans">AI Lead Systems</option>
-                 <option value="web" className="text-base font-sans">Websites</option>
-                 <option value="seo" className="text-base font-sans">SEO & Search</option>
-                 <option value="ads" className="text-base font-sans">Google Ads</option>
+                 <option value="web" className="text-base font-sans">Growth Websites</option>
+                 <option value="seo" className="text-base font-sans">SEO + Search Systems</option>
+                 <option value="ads" className="text-base font-sans">Paid Demand Systems</option>
                  <option value="other" className="text-base font-sans">Other Inquiry</option>
               </select>
             </div>

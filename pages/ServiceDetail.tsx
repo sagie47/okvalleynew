@@ -8,27 +8,33 @@ import { ArrowLeft, CheckCircle2, Code, Bot, Search, Globe, Zap, Database, LineC
 const serviceData: Record<string, any> = {
   'ai-lead-systems': {
     title: "AI Lead Systems",
-    subtitle: "Capture Every Opportunity Automatically",
-    description: "Stop losing jobs because you couldn't answer the phone. We build AI systems that instantly text back missed calls, capture leads from your website, and qualify them before they reach your team.",
+    subtitle: "Build an Always-On Growth Control Plane",
+    description: "Stop losing jobs because you were unreachable. We build agentic systems that instantly respond to missed calls, route inquiries by logic, and keep your team in sync on every opportunity.",
     features: [
       "Missed-call text-back automation",
       "Web chat to SMS routing",
-      "Automated lead qualification",
+      "Automated lead qualification with filters",
+      "Lead state tracking and routing",
       "Instant team notifications",
       "CRM setup and integration",
       "Review request automation"
     ],
+    deliveryModel: [
+      "Pipeline architecture mapped to your actual team workflow",
+      "Decision rules for qualification, urgency, and routing",
+      "Quality checks for duplicates, spam, and out-of-scope leads"
+    ],
     benefits: [
       { title: "Zero Missed Leads", desc: "Every missed call gets an instant text, keeping the prospect engaged with your business." },
-      { title: "Faster Response Time", desc: "Engage leads within seconds, dramatically increasing your chances of booking the job." },
+      { title: "Faster Response Time", desc: "Engage leads in seconds with scripted logic that preserves a human-first experience." },
       { title: "Reduced Admin Work", desc: "Automate the back-and-forth of scheduling and basic questions." },
-      { title: "More 5-Star Reviews", desc: "Automatically ask satisfied customers for reviews to boost your local ranking." }
+      { title: "More 5-Star Reviews", desc: "Automated review prompts and follow-up cadence to strengthen local trust signals." }
     ],
     caseStudy: {
       client: "Local HVAC Company",
       metric: "Lead Capture",
       challenge: "Losing 10+ jobs a month because technicians couldn't answer calls while on site.",
-      solution: "Implemented missed-call text-back and automated web chat routing directly to the owner's phone.",
+      solution: "Implemented missed-call text-back and automated web chat routing directly to the owner's phone with qualification logic and routing rules.",
       stats: [
         { label: "Missed Calls Saved", value: "15/mo" },
         { label: "Response Time", value: "<1 min" },
@@ -40,19 +46,24 @@ const serviceData: Record<string, any> = {
   },
   'conversion-websites': {
     title: "Conversion Websites",
-    subtitle: "High-Performance Sites Built for Trades",
-    description: "Your website shouldn't just look good; it needs to turn local traffic into booked jobs. We build fast, mobile-optimized websites designed specifically for service businesses.",
+    subtitle: "High-Performance Sites Engineered for Booking",
+    description: "Your website should behave like an acquisition system. We build fast, mobile-first sites with structured capture, clear service paths, and measurable conversion points.",
     features: [
       "Mobile-first design",
       "Service-specific landing pages",
-      "Clear, prominent calls-to-action",
+      "Decision-led CTA paths",
       "Trust signals (reviews, licensing)",
       "Fast loading speeds",
-      "Lead capture integration"
+      "Lead capture integration with CRM logic"
+    ],
+    deliveryModel: [
+      "Conversion architecture around user intent and urgency",
+      "A/B-tested micro-interactions on booking and inquiry paths",
+      "Content, page speed, and schema tuned for local SEO signal"
     ],
     benefits: [
       { title: "More Booked Jobs", desc: "Designed to guide visitors straight to calling you or filling out a quote request." },
-      { title: "Professional Image", desc: "Look like the most reliable and established pro in your service area." },
+      { title: "Professional Image", desc: "Position your business as the most reliable and trusted operator in your area." },
       { title: "Mobile Optimized", desc: "Perfectly formatted for customers searching for emergency services on their phones." },
       { title: "Built to Rank", desc: "Clean code and structure that Google loves, helping your local SEO efforts." }
     ],
@@ -72,15 +83,20 @@ const serviceData: Record<string, any> = {
   },
   'search-visibility': {
     title: "Search Visibility",
-    subtitle: "Dominate Your Local Market",
-    description: "When someone in your city needs your service, you need to show up first. We optimize your Google Business Profile and website to dominate local search results.",
+    subtitle: "Signal Dominance in Local Search",
+    description: "When someone needs your services fast, your local search stack needs to answer with confidence. We optimize GBP, website structure, and reputation signals so you win discoverability.",
     features: [
       "Google Business Profile optimization",
       "Local citation building",
-      "On-page SEO for service areas",
+      "Search intent mapping by service area",
       "Review generation strategy",
       "Keyword tracking & reporting",
       "Competitor analysis"
+    ],
+    deliveryModel: [
+      "Search map of current ranking opportunities and visibility gaps",
+      "Reputation loop through structured review requests and response templates",
+      "Reporting cadence aligned to lead-to-booking outcomes"
     ],
     benefits: [
       { title: "Map Pack Rankings", desc: "Get your business into the top 3 spots on Google Maps for your main services." },
@@ -104,15 +120,20 @@ const serviceData: Record<string, any> = {
   },
   'paid-lead-generation': {
     title: "Paid Lead Generation",
-    subtitle: "Targeted Ads for Immediate Results",
-    description: "Put your business directly in front of high-intent customers exactly when they need you. We run targeted Google Ads and Local Services Ads designed to generate phone calls.",
+    subtitle: "Controlled Demand Systems for Immediate Demand",
+    description: "Put your business in front of high-intent customers exactly when they need a solution, with campaign logic tied to booking quality and margin goals.",
     features: [
       "Google Local Services Ads (LSA) setup",
       "Search campaign management",
-      "Negative keyword optimization",
+      "Negative keyword controls and intent filters",
       "Call tracking & recording",
       "Landing page optimization",
-      "ROI reporting"
+      "ROI reporting and optimization experiments"
+    ],
+    deliveryModel: [
+      "Search intent segmentation for high-margin service requests",
+      "Negative keyword governance and spend guardrails",
+      "Continuous campaign experiments for cost per booked lead"
     ],
     benefits: [
       { title: "Immediate Visibility", desc: "Skip the SEO waiting game and appear at the top of search results today." },
@@ -224,9 +245,25 @@ const ServiceDetail: React.FC = () => {
                               <p className="font-sans text-brand-muted text-sm leading-relaxed">{b.desc}</p>
                            </div>
                          </div>
-                      ))}
+                     ))}
                    </div>
                  </>
+              )}
+
+              {service.deliveryModel && (
+                <>
+                  <h3 className="font-sans text-xl font-bold uppercase mb-8 flex items-center gap-2">
+                    <LineChart className="text-brand-accent w-5 h-5" /> Operating Model
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+                    {service.deliveryModel.map((item: string, i: number) => (
+                      <div key={i} className="flex items-start gap-4 border border-brand-muted/20 p-4">
+                        <div className="w-1.5 h-1.5 bg-brand-accent rounded-full mt-2" />
+                        <span className="font-sans font-medium text-sm leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>
               )}
 
               <div className="mt-16">
