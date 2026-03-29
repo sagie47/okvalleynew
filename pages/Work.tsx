@@ -61,11 +61,11 @@ const Work: React.FC = () => {
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           <Reveal>
             <h2 className="text-5xl md:text-7xl lg:text-8xl font-sans font-semibold tracking-tightest mb-8 leading-[1.05]">
-              Ready to <br/>
-              <span className="text-white/50">grow?</span>
+              Want to see <br/>
+              <span className="text-white/50">how it works?</span>
             </h2>
-            <Button to={RoutePath.CONTACT} variant="secondary" className="bg-white text-brand-ink hover:bg-white/90" icon>
-              Book a Call
+            <Button to={RoutePath.DEMOS} variant="secondary" className="bg-white text-brand-ink hover:bg-white/90" icon>
+              See Live Demos
             </Button>
           </Reveal>
         </div>

@@ -267,7 +267,7 @@ const ServiceDetail: React.FC = () => {
               )}
 
               <div className="mt-16">
-                 <Button to={RoutePath.CONTACT} variant="primary">Initialize Project</Button>
+                 <Button to={RoutePath.DEMOS} variant="primary">See Live Demos</Button>
               </div>
             </Reveal>
           </div>

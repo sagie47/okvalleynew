@@ -25,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props 
 }) => {
   const baseStyles = "group relative inline-flex items-center justify-center transition-all duration-500 ease-[0.16,1,0.3,1] focus:outline-none overflow-hidden rounded-full font-medium tracking-tight whitespace-nowrap";
+  const linkProps = props as React.ComponentProps<typeof Link>;
   
   const variants = {
     primary: "bg-brand-ink text-white px-6 py-3 text-sm hover:scale-[1.02] hover:shadow-lg hover:shadow-black/5",
@@ -45,7 +46,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (to) {
     return (
-      <Link to={to} className={combinedClasses}>
+      <Link to={to} className={combinedClasses} {...linkProps}>
         {content}
       </Link>
     );
@@ -261,4 +262,3 @@ export const Marquee: React.FC<{ items: string[]; reverse?: boolean }> = ({ item
     </div>
   );
 };
-

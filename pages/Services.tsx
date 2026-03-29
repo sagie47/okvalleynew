@@ -135,7 +135,7 @@ const Services: React.FC = () => {
                <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-4 block">Knowledge Base</span>
                <Heading level={2} className="mb-6 tracking-tight">System <br/>FAQ</Heading>
                <Text className="mb-10 text-brand-muted">Common queries regarding our automation setups and websites.</Text>
-               <Button to={RoutePath.CONTACT} variant="outline">Ask a Question</Button>
+               <Button to={RoutePath.DEMOS} variant="outline">See Live Demos</Button>
              </Reveal>
           </div>
           <div className="md:col-span-8">

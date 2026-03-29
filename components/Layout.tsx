@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { RoutePath } from '../types';
 import { Reveal } from './Common';
 import { motion, AnimatePresence } from 'motion/react';
+import { trackEvent } from '../src/analytics';
 
 const BrandLogo = () => (
   <div className="flex items-center gap-4">
@@ -17,7 +18,7 @@ const BrandLogo = () => (
     </div>
     <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-brand-muted/5 rounded-full border border-black/5">
       <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-brand-muted">Accepting Projects</span>
+      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-brand-muted">Pilot-ready</span>
     </div>
   </div>
 );
@@ -37,14 +38,15 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
+    { label: 'Demos', path: RoutePath.DEMOS },
     { label: 'Work', path: RoutePath.WORK },
     { label: 'Services', path: RoutePath.SERVICES },
-    { label: 'Insights', path: RoutePath.BLOG },
     { label: 'Pricing', path: RoutePath.PRICING },
     { label: 'About', path: RoutePath.ABOUT },
   ];
@@ -57,14 +59,13 @@ const Navbar: React.FC = () => {
             <BrandLogo />
           </NavLink>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
             <div className="flex items-center gap-1 bg-brand-muted/5 p-1 rounded-full border border-black/5">
               {navLinks.map((link) => (
-                <NavLink 
-                  key={link.path} 
-                  to={link.path} 
-                  className={({ isActive }) => 
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className={({ isActive }) =>
                     `px-5 py-2 rounded-full text-sm font-medium tracking-tight transition-all duration-300 ${isActive ? 'bg-white text-brand-ink shadow-sm' : 'text-brand-muted hover:text-brand-ink hover:bg-white/50'}`
                   }
                 >
@@ -72,25 +73,26 @@ const Navbar: React.FC = () => {
                 </NavLink>
               ))}
             </div>
-            <button 
-              onClick={() => navigate(RoutePath.CONTACT)}
+            <button
+              onClick={() => {
+                trackEvent('nav_demo_click', { source: 'desktop_nav' });
+                navigate(RoutePath.DEMOS);
+              }}
               className="text-sm font-medium tracking-tight bg-brand-ink text-white px-6 py-2.5 rounded-full hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,93,143,0.3)] transition-all duration-500 ease-[0.16,1,0.3,1] border border-transparent hover:border-brand-accent/50"
             >
-              Book a Call
+              See Live Demos
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-brand-ink relative z-50 p-2 bg-brand-muted/5 rounded-full border border-black/5">
-             {isOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+            {isOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
           </button>
         </div>
       </nav>
 
-      {/* Full Screen Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
@@ -105,25 +107,29 @@ const Navbar: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + idx * 0.05, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <NavLink 
-                    to={link.path} 
+                  <NavLink
+                    to={link.path}
                     className="text-4xl font-sans font-medium text-brand-ink hover:opacity-70 transition-opacity tracking-tight"
                   >
                     {link.label}
                   </NavLink>
                 </motion.div>
               ))}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="pt-8 w-full max-w-xs"
               >
-                 <button 
-                  onClick={() => { navigate(RoutePath.CONTACT); setIsOpen(false); }}
+                <button
+                  onClick={() => {
+                    trackEvent('nav_demo_click', { source: 'mobile_nav' });
+                    navigate(RoutePath.DEMOS);
+                    setIsOpen(false);
+                  }}
                   className="w-full text-center py-4 bg-brand-ink text-white text-lg font-sans font-medium rounded-full hover:scale-[1.02] transition-transform duration-500 ease-[0.16,1,0.3,1]"
                 >
-                  Book a Call
+                  See Live Demos
                 </button>
               </motion.div>
             </div>
@@ -140,20 +146,20 @@ const Footer: React.FC = () => {
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-8 mb-24">
           <div className="md:col-span-2">
-             <Reveal>
-               <BrandLogo />
-               <p className="font-sans text-2xl md:text-3xl font-medium leading-tight max-w-md tracking-tight mt-8 text-brand-ink">
-                 Engineering AI growth systems for local operators.
-               </p>
-             </Reveal>
+            <Reveal>
+              <BrandLogo />
+              <p className="font-sans text-2xl md:text-3xl font-medium leading-tight max-w-md tracking-tight mt-8 text-brand-ink">
+                AI lead systems for local operators who cannot afford slow follow-up.
+              </p>
+            </Reveal>
           </div>
-          
+
           <div className="space-y-6">
-            <h4 className="text-sm font-medium text-brand-muted tracking-tight">Sitemap</h4>
+            <h4 className="text-sm font-medium text-brand-muted tracking-tight">Explore</h4>
             <ul className="space-y-3 font-sans text-base">
+              <li><NavLink to={RoutePath.DEMOS} className="text-brand-ink hover:opacity-70 transition-opacity">Live Demos</NavLink></li>
               <li><NavLink to={RoutePath.WORK} className="text-brand-ink hover:opacity-70 transition-opacity">Work</NavLink></li>
               <li><NavLink to={RoutePath.SERVICES} className="text-brand-ink hover:opacity-70 transition-opacity">Services</NavLink></li>
-              <li><NavLink to={RoutePath.BLOG} className="text-brand-ink hover:opacity-70 transition-opacity">Insights</NavLink></li>
               <li><NavLink to={RoutePath.PRICING} className="text-brand-ink hover:opacity-70 transition-opacity">Pricing</NavLink></li>
             </ul>
           </div>
@@ -163,16 +169,16 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 font-sans text-base">
               <li><a href="mailto:info@okvalleyweb.com" className="text-brand-ink hover:opacity-70 transition-opacity">info@okvalleyweb.com</a></li>
               <li><a href="tel:+17787694402" className="text-brand-ink hover:opacity-70 transition-opacity">(778) 769-4402</a></li>
-              <li><span className="text-brand-muted">Kelowna, BC / Worldwide</span></li>
+              <li><a href="https://cal.com/okvalley/30min" target="_blank" rel="noreferrer" className="text-brand-ink hover:opacity-70 transition-opacity">Book a system call</a></li>
             </ul>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center border-t border-black/5 pt-8 gap-4">
-          <span className="font-sans text-sm text-brand-muted tracking-tight">© 2026 OK Valley Web. All rights reserved.</span>
+          <span className="font-sans text-sm text-brand-muted tracking-tight">Copyright 2026 OK Valley Web. All rights reserved.</span>
           <div className="flex gap-6">
-            <span className="font-sans text-sm text-brand-muted tracking-tight hover:text-brand-ink cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="font-sans text-sm text-brand-muted tracking-tight hover:text-brand-ink cursor-pointer transition-colors">Terms of Service</span>
+            <NavLink to={RoutePath.PRIVACY} className="font-sans text-sm text-brand-muted tracking-tight hover:text-brand-ink transition-colors">Privacy Policy</NavLink>
+            <NavLink to={RoutePath.TERMS} className="font-sans text-sm text-brand-muted tracking-tight hover:text-brand-ink transition-colors">Terms of Service</NavLink>
           </div>
         </div>
       </div>

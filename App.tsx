@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { RoutePath } from './types';
+import { AnalyticsBootstrap } from './src/analytics';
 
 // Pages
+import Demos from './pages/Demos';
 import Home from './pages/Home';
 import Work from './pages/Work';
 import ProjectDetail from './pages/ProjectDetail';
@@ -14,6 +16,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 // Scroll to top component
 const ScrollToTop = () => {
@@ -37,10 +41,12 @@ const NotFound: React.FC = () => (
 const App: React.FC = () => {
   return (
     <HashRouter>
+      <AnalyticsBootstrap />
       <ScrollToTop />
       <Layout>
         <Routes>
           <Route path={RoutePath.HOME} element={<Home />} />
+          <Route path={RoutePath.DEMOS} element={<Demos />} />
           <Route path={RoutePath.WORK} element={<Work />} />
           <Route path="/work/:id" element={<ProjectDetail />} />
           <Route path={RoutePath.SERVICES} element={<Services />} />
@@ -50,6 +56,8 @@ const App: React.FC = () => {
           <Route path={RoutePath.PRICING} element={<Pricing />} />
           <Route path={RoutePath.ABOUT} element={<About />} />
           <Route path={RoutePath.CONTACT} element={<Contact />} />
+          <Route path={RoutePath.PRIVACY} element={<Privacy />} />
+          <Route path={RoutePath.TERMS} element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>

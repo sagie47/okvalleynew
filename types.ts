@@ -23,10 +23,13 @@ export interface ServiceItem {
 
 export enum RoutePath {
   HOME = '/',
+  DEMOS = '/demos',
   WORK = '/work',
   SERVICES = '/services',
   PRICING = '/pricing',
   ABOUT = '/about',
   BLOG = '/insights',
-  CONTACT = '/contact'
+  CONTACT = '/contact',
+  PRIVACY = '/privacy',
+  TERMS = '/terms'
 }
