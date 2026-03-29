@@ -61,7 +61,7 @@ const Blog: React.FC = () => {
     <>
       <PageHeader 
         title="INSIGHTS"
-        subtitle="Strategies and systems for growing local service businesses."
+        subtitle="Notes on AI operators, workflow design, and execution systems for agencies and businesses."
       />
 
       <div className="w-full border-t border-brand-ink">
@@ -99,7 +99,7 @@ const Blog: React.FC = () => {
       
       <Section className="bg-brand-muted/5 text-center py-24">
          <Heading level={2} className="mb-8">Get the newsletter.</Heading>
-         <Text className="mb-8">No spam. Only high-value tactics for local trades.</Text>
+         <Text className="mb-8">No spam. Only useful ideas on operators, automation, and workflow leverage.</Text>
          <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
             <div className="flex gap-4">
               <input

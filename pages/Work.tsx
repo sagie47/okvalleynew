@@ -65,7 +65,7 @@ const Work: React.FC = () => {
               <span className="text-white/50">how it works?</span>
             </h2>
             <Button to={RoutePath.DEMOS} variant="secondary" className="bg-white text-brand-ink hover:bg-white/90" icon>
-              See Live Demos
+              See Workflow Demos
             </Button>
           </Reveal>
         </div>

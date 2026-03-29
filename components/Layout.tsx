@@ -13,12 +13,12 @@ const BrandLogo = () => (
         <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
       </div>
       <span className="font-sans text-xl font-semibold tracking-tight text-brand-ink">
-        ValleyWeb
+        OK Valley
       </span>
     </div>
     <div className="hidden lg:flex items-center gap-2 px-3 py-1 bg-brand-muted/5 rounded-full border border-black/5">
       <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-brand-muted">Pilot-ready</span>
+      <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-brand-muted">Sprint-ready</span>
     </div>
   </div>
 );
@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
               }}
               className="text-sm font-medium tracking-tight bg-brand-ink text-white px-6 py-2.5 rounded-full hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,93,143,0.3)] transition-all duration-500 ease-[0.16,1,0.3,1] border border-transparent hover:border-brand-accent/50"
             >
-              See Live Demos
+              See Workflow Demos
             </button>
           </div>
 
@@ -129,7 +129,7 @@ const Navbar: React.FC = () => {
                   }}
                   className="w-full text-center py-4 bg-brand-ink text-white text-lg font-sans font-medium rounded-full hover:scale-[1.02] transition-transform duration-500 ease-[0.16,1,0.3,1]"
                 >
-                  See Live Demos
+                  See Workflow Demos
                 </button>
               </motion.div>
             </div>
@@ -149,7 +149,7 @@ const Footer: React.FC = () => {
             <Reveal>
               <BrandLogo />
               <p className="font-sans text-2xl md:text-3xl font-medium leading-tight max-w-md tracking-tight mt-8 text-brand-ink">
-                AI lead systems for local operators who cannot afford slow follow-up.
+                Custom AI operators for agencies and businesses when template automation is not enough.
               </p>
             </Reveal>
           </div>
@@ -157,7 +157,7 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <h4 className="text-sm font-medium text-brand-muted tracking-tight">Explore</h4>
             <ul className="space-y-3 font-sans text-base">
-              <li><NavLink to={RoutePath.DEMOS} className="text-brand-ink hover:opacity-70 transition-opacity">Live Demos</NavLink></li>
+              <li><NavLink to={RoutePath.DEMOS} className="text-brand-ink hover:opacity-70 transition-opacity">Workflow Demos</NavLink></li>
               <li><NavLink to={RoutePath.WORK} className="text-brand-ink hover:opacity-70 transition-opacity">Work</NavLink></li>
               <li><NavLink to={RoutePath.SERVICES} className="text-brand-ink hover:opacity-70 transition-opacity">Services</NavLink></li>
               <li><NavLink to={RoutePath.PRICING} className="text-brand-ink hover:opacity-70 transition-opacity">Pricing</NavLink></li>
@@ -169,7 +169,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-3 font-sans text-base">
               <li><a href="mailto:info@okvalleyweb.com" className="text-brand-ink hover:opacity-70 transition-opacity">info@okvalleyweb.com</a></li>
               <li><a href="tel:+17787694402" className="text-brand-ink hover:opacity-70 transition-opacity">(778) 769-4402</a></li>
-              <li><a href="https://cal.com/okvalley/30min" target="_blank" rel="noreferrer" className="text-brand-ink hover:opacity-70 transition-opacity">Book a system call</a></li>
+              <li><a href="https://cal.com/okvalley/30min" target="_blank" rel="noreferrer" className="text-brand-ink hover:opacity-70 transition-opacity">Book a workflow call</a></li>
             </ul>
           </div>
         </div>

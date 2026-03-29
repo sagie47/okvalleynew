@@ -32,27 +32,27 @@ const featuredProjects = [
 
 const demoPreviews = [
   {
-    title: 'Missed-call text-back',
-    body: 'See how a missed call turns into an immediate reply, a qualified lead, and a clear owner.',
+    title: 'Browser-use execution',
+    body: 'See how a custom operator moves through live software, handles branching logic, and completes multi-step work.',
     icon: BellRing,
   },
   {
-    title: 'Web lead routing',
-    body: 'See how short-form inquiries get tagged, routed, and pushed into the right follow-up path.',
+    title: 'Agency reporting flow',
+    body: 'See how recurring client updates, data pulls, and recap generation become one controlled system instead of manual admin.',
     icon: Route,
   },
   {
-    title: 'Qualification to booking',
-    body: 'See how low-intent leads are filtered before they waste technician time or calendar space.',
+    title: 'Lead ops automation',
+    body: 'See how inbound leads are qualified, routed, and handed off without relying on brittle template automations.',
     icon: MessageSquareMore,
   },
 ];
 
 const proofItems = [
-  { value: '< 5m', label: 'response target' },
-  { value: '24/7', label: 'coverage layer' },
-  { value: '+60%', label: 'lead growth example' },
-  { value: '$1,500', label: 'pilot starting price' },
+  { value: '2', label: 'delivery lanes' },
+  { value: 'custom', label: 'operator builds' },
+  { value: 'cross-tool', label: 'workflow scope' },
+  { value: 'sprint', label: 'engagement model' },
 ];
 
 const Home: React.FC = () => {
@@ -82,14 +82,14 @@ const Home: React.FC = () => {
             <div className="flex items-center gap-3 mb-12">
               <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
               <span className="font-sans text-sm font-medium tracking-tight text-white/70 uppercase tracking-widest">
-                Kelowna, BC / AI lead systems for local trades
+                Kelowna, BC / Custom AI systems for agencies and operators
               </span>
             </div>
           </Reveal>
 
           <Reveal delay={200}>
             <h1 className="text-6xl md:text-8xl lg:text-[9vw] font-sans font-semibold leading-[0.95] tracking-tightest mb-8 max-w-6xl">
-              See the system that stops missed demand
+              Advanced AI operators for workflows templates cannot handle
             </h1>
           </Reveal>
 
@@ -97,7 +97,7 @@ const Home: React.FC = () => {
             <div className="md:col-span-7">
               <Reveal delay={400}>
                 <Text size="xl" className="mb-12 text-white/70 max-w-3xl">
-                  We build AI response systems for local operators. Start with the live demos, see the logic, then decide whether the $1,500 pilot is the right first build.
+                  Most agency AI offers stop at canned CRM automations and re-skinned templates. We build custom browser-use and agent systems for cross-tool workflows, messy edge cases, and execution work your team cannot automate with off-the-shelf stacks.
                 </Text>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
@@ -106,14 +106,14 @@ const Home: React.FC = () => {
                     icon
                     onClick={() => trackEvent('homepage_primary_cta', { destination: 'demos' })}
                   >
-                    See Live Demos
+                    See Workflow Demos
                   </Button>
                   <Button
                     to={RoutePath.PRICING}
                     className="bg-transparent text-white border border-white/20 hover:bg-white/10"
                     onClick={() => trackEvent('homepage_secondary_cta', { destination: 'pricing' })}
                   >
-                    Review Pilot Pricing
+                    Review Sprint Models
                   </Button>
                 </div>
               </Reveal>
@@ -145,11 +145,32 @@ const Home: React.FC = () => {
 
       <Section className="bg-white">
         <div className="max-w-3xl mb-16">
-          <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-6 block">Why demos first</span>
-          <Heading level={2} className="mb-8">You should not have to imagine what the system does.</Heading>
+          <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-6 block">What we actually sell</span>
+          <Heading level={2} className="mb-8">The gap between happy-path automation and real execution.</Heading>
           <Text size="lg">
-            The fastest way to trust this offer is to watch the response path, routing rules, and booking logic play out before you book a call.
+            Basic automations work until the workflow needs live logins, branching decisions, browser actions, exception handling, or cross-tool coordination. That is where most packaged AI offers break and where our work starts.
           </Text>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+          <Reveal>
+            <div className="rounded-3xl border border-black/5 bg-brand-muted/5 p-8 h-full">
+              <span className="block text-[10px] uppercase tracking-widest text-brand-muted mb-4">Lane 01</span>
+              <h3 className="text-3xl font-sans font-medium tracking-tight text-brand-ink mb-4">For marketing agencies</h3>
+              <Text className="max-w-none">
+                White-label AI execution systems for agencies that need more than GoHighLevel-style automation. We build client reporting operators, QA flows, research agents, internal ops systems, and delivery accelerators.
+              </Text>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="rounded-3xl border border-black/5 bg-brand-muted/5 p-8 h-full">
+              <span className="block text-[10px] uppercase tracking-widest text-brand-muted mb-4">Lane 02</span>
+              <h3 className="text-3xl font-sans font-medium tracking-tight text-brand-ink mb-4">For businesses</h3>
+              <Text className="max-w-none">
+                Custom workflow agents for teams that need intake automation, browser-based execution, client communication systems, and operational follow-through beyond simple triggers and canned sequences.
+              </Text>
+            </div>
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -182,10 +203,10 @@ const Home: React.FC = () => {
       <Section className="bg-brand-muted/5 rounded-[3rem] my-12 mx-4 md:mx-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-16">
           <div className="lg:col-span-7">
-            <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-4 block">Proof</span>
-            <Heading level={2} className="mb-6">Supporting case proof from real client work.</Heading>
+            <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-4 block">Implementation proof</span>
+            <Heading level={2} className="mb-6">Selected work that shows we ship systems, not just ideas.</Heading>
             <Text size="lg">
-              The demos carry the first click. The work archive backs up the claim with visible outcomes, structured projects, and conversion-focused execution.
+              The archive still matters because advanced operators need strong foundations: clear conversion paths, disciplined implementation, and systems that survive real operating conditions.
             </Text>
           </div>
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
@@ -233,25 +254,25 @@ const Home: React.FC = () => {
       <Section className="bg-white">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4">
-            <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-6 block">How the pilot works</span>
-            <Heading level={2} className="mb-8">One sharp offer first.</Heading>
+            <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-6 block">How we engage</span>
+            <Heading level={2} className="mb-8">One workflow first. Then scale.</Heading>
             <Text size="lg">
-              Start with the fast-response layer. Expansion into website, search, and paid demand comes after the response system is live.
+              We do not start with vague AI strategy. We isolate one high-friction workflow, build the operator around it, then expand only after the first system proves itself.
             </Text>
           </div>
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                title: 'Map the intake path',
-                body: 'Audit what happens after a missed call or web inquiry, then isolate the first control point worth building.',
+                title: 'Map the workflow',
+                body: 'Break down the exact task, tool stack, edge cases, and failure points instead of pretending a generic template will cover it.',
               },
               {
-                title: 'Launch the pilot',
-                body: 'Install the response logic, routing rules, and lead handoff pattern without forcing a full rebuild first.',
+                title: 'Build the operator',
+                body: 'Implement the first custom system with explicit branching logic, guardrails, and a usable handoff back to your team.',
               },
               {
-                title: 'Expand only after proof',
-                body: 'Use conversion data from the pilot to decide whether website, SEO, or paid demand should be the next move.',
+                title: 'Expand after proof',
+                body: 'Once the first workflow holds up, add adjacent systems for reporting, fulfillment, intake, QA, or growth operations.',
               },
             ].map((item, index) => (
               <Reveal key={item.title} delay={index * 100}>
@@ -265,39 +286,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </Section>
-
-      <section className="py-32 px-6 md:px-12 bg-brand-ink text-white text-center rounded-[3rem] mx-4 md:mx-8 mb-12 overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-50"></div>
-        <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
-          <Reveal>
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-sans font-semibold tracking-tightest mb-8 leading-[1.05]">
-              Watch the logic. <br />
-              <span className="text-white/50">Then book the call.</span>
-            </h2>
-            <Text size="xl" className="text-white/70 mb-12 max-w-2xl mx-auto">
-              The demo hub is the fastest route to understanding whether this fits your business before you spend time on a discovery call.
-            </Text>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                to={RoutePath.DEMOS}
-                variant="secondary"
-                className="bg-white text-brand-ink hover:bg-white/90"
-                icon
-                onClick={() => trackEvent('bottom_cta_click', { destination: 'demos' })}
-              >
-                See Live Demos
-              </Button>
-              <Button
-                to={RoutePath.CONTACT}
-                className="bg-transparent text-white border border-white/20 hover:bg-white/10"
-                onClick={() => trackEvent('bottom_cta_click', { destination: 'contact' })}
-              >
-                Ask a specific question
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 };

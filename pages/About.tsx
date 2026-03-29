@@ -14,9 +14,9 @@ const galleryImages = [
 const About: React.FC = () => {
   return (
     <>
-      <PageHeader 
+      <PageHeader
         title={<>About <br/>OK Valley Web</>}
-        subtitle="We build AI lead systems and growth software for local service operators."
+        subtitle="We build custom AI operators for agencies and businesses when template automation stops being compelling."
       />
 
       <Section className="bg-brand-muted/5">
@@ -29,44 +29,43 @@ const About: React.FC = () => {
           <div className="md:col-span-8 space-y-8">
             <Reveal delay={100}>
               <Text size="lg" className="text-brand-muted">
-                Founded in Kelowna, BC, we build growth systems for local service businesses in trades, from HVAC and plumbing to roofing and landscaping.
+                Founded in Kelowna, BC, OK Valley started from a simple observation: most AI offers in the market are just thin wrappers around simple automations.
               </Text>
             </Reveal>
             <Reveal delay={200}>
               <Text size="lg" className="text-brand-muted">
-                We realized that traffic alone wasn't enough. Our clients were losing jobs because they could not answer the phone while on site. That changed us, and we shifted from campaign-only work to automated system design.
+                They look impressive in a sales deck, but they fall apart when the workflow needs live logins, branching decisions, browser actions, exception handling, or cross-tool coordination.
               </Text>
             </Reveal>
             <Reveal delay={300}>
               <Text size="lg" className="text-brand-muted">
-                Today we combine marketing strategy with software logic: websites that convert, SEO that compounds, and AI automation that turns intent into assigned next actions.
+                That gap shaped the company. We shifted away from generic marketing packaging and toward custom AI execution systems that agencies and operating teams can actually use in real work.
               </Text>
             </Reveal>
             <Reveal delay={400}>
               <Text size="lg" className="text-brand-muted">
-                We position every offer as a system with quality checks, instrumentation, and repeatable optimization loops for sustainable revenue growth.
+                Today the work runs across two lanes: white-label systems for agencies and custom workflow agents for businesses. In both cases, the standard is the same: real implementation, explicit logic, and systems that survive messy operating conditions.
               </Text>
             </Reveal>
           </div>
         </div>
       </Section>
 
-      {/* Operational Reality Gallery */}
       <Section className="bg-white">
         <div className="mb-20">
           <Reveal>
             <span className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-brand-accent mb-4 block">Our Work</span>
-            <Heading level={1} className="uppercase tracking-tighter">Built for Trades</Heading>
+            <Heading level={1} className="uppercase tracking-tighter">Built for Real Workflows</Heading>
           </Reveal>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {galleryImages.map((img, i) => (
             <Reveal key={i} delay={i * 100}>
-              <ImageFrame 
-                src={img.src} 
-                label={img.label} 
-                className={`${i % 2 === 0 ? 'aspect-[4/5]' : 'aspect-square'} shadow-lg`} 
+              <ImageFrame
+                src={img.src}
+                label={img.label}
+                className={`${i % 2 === 0 ? 'aspect-[4/5]' : 'aspect-square'} shadow-lg`}
               />
             </Reveal>
           ))}
@@ -79,26 +78,26 @@ const About: React.FC = () => {
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-brand-muted/20 pt-12 relative z-10">
           {[
-            { title: "Systems Thinking", desc: "We design growth as a state machine: capture, qualify, assign, follow, and report." },
-            { title: "Software Discipline", desc: "Clean code, reliable routing, and explicit logic for how leads move through your pipeline." },
-            { title: "Measurement-Led Growth", desc: "Build, test, evaluate, and improve across channels every cycle." },
-            { title: "AI Operations", desc: "Agentic workflows handle repetitive responses while your team focuses on delivery and relationships." },
-            { title: "Trust + Clarity", desc: "Transparent updates, clear milestones, and a clear accountability chain for every campaign." },
-            { title: "Commercial Expansion", desc: "Every project is designed to compound into predictable lead quality and higher booking confidence." }
+            { title: "Workflow First", desc: "We start with the exact task and failure points, not a preferred tool or a canned package." },
+            { title: "Operator Logic", desc: "Every build has explicit branching rules, browser actions, fallbacks, and clean handoff points." },
+            { title: "Software Discipline", desc: "Custom systems need QA, observability, and implementation rigor, not just marketing copy." },
+            { title: "Agency Utility", desc: "For agencies, the goal is more delivery capacity without hiring another operator for every repetitive workflow." },
+            { title: "Business Utility", desc: "For businesses, the goal is operational leverage where intake, execution, and follow-through need more than simple automation." },
+            { title: "Commercial Clarity", desc: "We package the first engagement as a scoped sprint so you can prove one workflow before expanding." }
           ].map((item, i) => (
             <Reveal key={i} delay={i * 100} className="group">
-              <span className="block font-sans text-6xl font-bold text-brand-accent mb-4 opacity-30 group-hover:opacity-100 transition-opacity">0{i+1}</span>
+              <span className="block font-sans text-6xl font-bold text-brand-accent mb-4 opacity-30 group-hover:opacity-100 transition-opacity">0{i + 1}</span>
               <h3 className="text-xl font-sans font-bold uppercase mb-4 text-brand-ink">{item.title}</h3>
               <p className="text-brand-muted font-sans max-w-sm">{item.desc}</p>
             </Reveal>
           ))}
         </div>
       </div>
-      
+
       <Section className="text-center py-48 bg-white border-t border-brand-muted/20">
         <Reveal>
-          <Heading level={2} className="mb-6 uppercase">Ready to grow your business?</Heading>
-          <Text className="mx-auto mb-12 max-w-xl text-brand-muted">Let's design your lead system architecture for faster response, better qualification, and more reliable growth.</Text>
+          <Heading level={2} className="mb-6 uppercase">Ready to replace template automation?</Heading>
+          <Text className="mx-auto mb-12 max-w-xl text-brand-muted">Book a call if you need a custom AI system for a workflow your current stack cannot actually handle.</Text>
           <Button to={RoutePath.CONTACT} variant="primary">Contact Us</Button>
         </Reveal>
       </Section>

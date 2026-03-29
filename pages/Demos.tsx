@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { PageHeader, Section, Heading, Text, Button, Reveal } from '../components/Common';
 import { RoutePath } from '../types';
 import { trackEvent } from '../src/analytics';
-import { ArrowRight, BellRing, MessageSquareMore, Route, CheckCircle2 } from 'lucide-react';
+import { MonitorCog, LineChart, Workflow, CheckCircle2 } from 'lucide-react';
 
 type DemoStep = {
   heading: string;
@@ -22,77 +22,77 @@ type DemoCard = {
 
 const demoCards: DemoCard[] = [
   {
-    id: 'missed-call',
+    id: 'browser-use-execution',
     badge: 'Demo 01',
-    title: 'Missed-call text-back',
-    summary: 'Show how a missed inbound call becomes an immediate reply, a qualified record, and a clear next action.',
-    icon: BellRing,
-    result: 'Lead gets a response in under 1 minute.',
+    title: 'Browser-use execution operator',
+    summary: 'Show how a custom operator works across live software, branching logic, and exception handling instead of stopping at a canned webhook chain.',
+    icon: MonitorCog,
+    result: 'Complex workflow steps get executed in the same tools your team already uses.',
     steps: [
       {
-        heading: 'Missed call detected',
-        body: 'The system catches a missed inbound call, tags the source, and checks time-of-day routing rules before anything is sent.',
-        signal: 'Trigger: inbound missed call',
+        heading: 'Context collected',
+        body: 'The operator starts with the right account, task type, workflow rules, and guardrails instead of guessing from a generic prompt.',
+        signal: 'Input: account context plus workflow instructions',
       },
       {
-        heading: 'Instant text reply',
-        body: 'A short reply confirms receipt, offers the next step, and avoids making promises the shop cannot keep.',
-        signal: 'Output: trust-preserving first response',
+        heading: 'Software navigation',
+        body: 'It logs into the required tools, moves through the actual interface, and handles the work where the system already lives.',
+        signal: 'Action: browser-use across real software',
       },
       {
-        heading: 'Team handoff',
-        body: 'The lead is pushed into the pipeline with urgency, call context, and an assigned owner so nobody has to rebuild context manually.',
-        signal: 'Outcome: clear owner and next task',
+        heading: 'Exception path handled',
+        body: 'If the workflow branches or something unexpected appears, the operator follows the fallback logic instead of silently failing.',
+        signal: 'Outcome: resilient execution beyond the happy path',
       },
     ],
   },
   {
-    id: 'web-routing',
+    id: 'agency-reporting',
     badge: 'Demo 02',
-    title: 'Web lead routing',
-    summary: 'Show how a website inquiry moves from form submission into routing logic, urgency tagging, and follow-up.',
-    icon: Route,
-    result: 'The right person gets the right lead without inbox chaos.',
+    title: 'Agency reporting flow',
+    summary: 'Show how an agency can turn scattered account data and manual recap work into a repeatable reporting workflow with operator logic.',
+    icon: LineChart,
+    result: 'Account managers stop rebuilding the same report every week by hand.',
     steps: [
       {
-        heading: 'Form captured',
-        body: 'A clean form captures only first-contact data, reducing friction and improving quote-start rate on mobile.',
-        signal: 'Trigger: short form submit',
+        heading: 'Source data gathered',
+        body: 'The operator pulls performance context from the required tools, keeping channel-level details tied to the right client.',
+        signal: 'Trigger: scheduled reporting window',
       },
       {
-        heading: 'Routing logic applied',
-        body: 'Trade type, urgency, and service area determine where the lead goes and whether it becomes a same-day priority.',
-        signal: 'Logic: service area + urgency + job type',
+        heading: 'Narrative generated',
+        body: 'Results are translated into a usable recap with movement, anomalies, and next actions instead of raw screenshots and guesswork.',
+        signal: 'Logic: metrics plus interpretation rules',
       },
       {
-        heading: 'Follow-up sequence queued',
-        body: 'If the lead is not handled quickly, the system schedules reminders so demand does not disappear after the first touch.',
-        signal: 'Outcome: no silent lead decay',
+        heading: 'Delivery path selected',
+        body: 'The final output is routed into the right format for internal review, client sharing, or follow-up task creation.',
+        signal: 'Outcome: less admin drag and cleaner client delivery',
       },
     ],
   },
   {
-    id: 'qualification',
+    id: 'lead-ops-automation',
     badge: 'Demo 03',
-    title: 'Qualification to booking',
-    summary: 'Show how a lead is filtered, clarified, and moved toward a booked slot without adding admin drag.',
-    icon: MessageSquareMore,
-    result: 'Low-intent leads get filtered before they waste technician time.',
+    title: 'Lead ops automation',
+    summary: 'Show how inbound leads move from capture to qualification to routing when the business logic is too messy for a simple CRM template.',
+    icon: Workflow,
+    result: 'Leads are routed by fit, urgency, and next action instead of dropping into a generic queue.',
     steps: [
       {
-        heading: 'Basic qualification',
-        body: 'The system asks for the minimum details needed to tell whether the request is a fit, urgent, or out of scope.',
-        signal: 'Check: fit before booking',
+        heading: 'Lead captured',
+        body: 'The system receives the first signal from a form, call, or inbound channel and immediately tags the source and context.',
+        signal: 'Trigger: inbound lead event',
       },
       {
-        heading: 'Booking path selected',
-        body: 'Qualified leads are pointed to the correct next step: callback, calendar slot, or manual review if the job needs context.',
-        signal: 'Output: controlled booking path',
+        heading: 'Qualification applied',
+        body: 'Rules decide whether the lead should be accepted, filtered, escalated, or sent to a human review step.',
+        signal: 'Logic: fit, urgency, and workflow conditions',
       },
       {
-        heading: 'Operational visibility',
-        body: 'Every status change is visible so the shop can see what is booked, pending, ignored, or escalated.',
-        signal: 'Outcome: fewer dropped conversations',
+        heading: 'Next action assigned',
+        body: 'The lead is moved into the right owner, queue, or booking path with clear visibility on what happens next.',
+        signal: 'Outcome: fewer dropped leads and less manual triage',
       },
     ],
   },
@@ -114,31 +114,31 @@ const Demos: React.FC = () => {
   return (
     <>
       <PageHeader
-        badge="Live Demos"
+        badge="Workflow Demos"
         title={
           <>
             See the <br />
-            <span className="text-white/50">lead system</span>
+            <span className="text-white/50">operator logic</span>
           </>
         }
-        subtitle="Three interactive walkthroughs that show how missed demand becomes booked work without chaos, lag, or blind automation."
+        subtitle="Three walkthroughs that show how OK Valley handles workflows that break template automation: live software navigation, branching logic, and real execution paths."
       />
 
       <Section className="bg-white">
         <Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
             <div className="lg:col-span-7">
-              <Heading level={2} className="mb-6">Built to answer the first buyer question.</Heading>
+              <Heading level={2} className="mb-6">Built for the workflows most AI offers cannot actually handle.</Heading>
               <Text size="lg">
-                What does this actually do inside a real shop? These demos show the response path, routing logic, and booking control layer in plain language.
+                These demos are not chatbot theater. They show where operator logic matters: navigating software, following branching rules, and moving work forward when the real process gets messy.
               </Text>
             </div>
             <div className="lg:col-span-5">
               <div className="bg-brand-muted/5 border border-black/5 rounded-3xl p-8">
-                <span className="block text-[10px] uppercase tracking-widest text-brand-muted mb-3">Pilot starting price</span>
+                <span className="block text-[10px] uppercase tracking-widest text-brand-muted mb-3">Sprint starting price</span>
                 <span className="block text-5xl font-sans font-semibold tracking-tight text-brand-ink mb-4">$1,500</span>
                 <Text className="max-w-none">
-                  Fast setup for the response layer first. Website, search, and paid demand expansion come after the system is proven.
+                  Businesses can start with a focused workflow build. Agencies usually start with a larger sprint once the first operator and delivery surface are mapped.
                 </Text>
               </div>
             </div>
@@ -230,9 +230,9 @@ const Demos: React.FC = () => {
         <Reveal>
           <div className="max-w-4xl">
             <span className="block text-[10px] uppercase tracking-widest text-white/50 mb-4">Next step</span>
-            <Heading level={2} className="mb-6 text-white">If the demos map to your actual lead flow, book the system call.</Heading>
+            <Heading level={2} className="mb-6 text-white">If the demos map to your real workflow, book the workflow call.</Heading>
             <Text size="lg" className="text-white/70 mb-10 max-w-2xl">
-              We use the call to map your intake path, identify the first control point, and decide whether a $1,500 pilot is the right first build.
+              We use the call to find the highest-friction workflow, assess whether your current stack is failing on logic or execution, and decide whether a business build or agency sprint is the right first engagement.
             </Text>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
@@ -242,10 +242,10 @@ const Demos: React.FC = () => {
                 onClick={() => trackEvent('cal_click', { source: 'demos_cta' })}
                 className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-medium text-brand-ink transition-all duration-500 hover:scale-[1.02] hover:bg-white/90"
               >
-                Book the system call
+                Book the workflow call
               </a>
               <Button to={RoutePath.PRICING} className="bg-transparent text-white border border-white/20 hover:bg-white/10">
-                Review pilot pricing
+                Review sprint pricing
               </Button>
             </div>
           </div>

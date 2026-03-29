@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
     ].join('\n');
 
     trackEvent('fallback_form_submit', { inquiry });
-    window.location.href = `mailto:info@okvalleyweb.com?subject=${encodeURIComponent(`New website inquiry: ${inquiry}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:info@okvalleyweb.com?subject=${encodeURIComponent(`New workflow inquiry: ${inquiry}`)}&body=${encodeURIComponent(body)}`;
     setStatus('success');
     event.currentTarget.reset();
   };
@@ -60,14 +60,14 @@ const Contact: React.FC = () => {
           <Reveal>
             <div className="flex items-center gap-3 mb-8">
               <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
-              <span className="font-sans text-sm font-medium tracking-tight text-white/70 uppercase tracking-widest">Booking path</span>
+              <span className="font-sans text-sm font-medium text-white/70 uppercase tracking-widest">Workflow call</span>
             </div>
-            <Heading level={1} className="mb-8 tracking-tightest leading-[0.95]">
+            <Heading level={1} className="mb-8 tracking-tightest leading-[0.95] text-white">
               Book the <br />
-              <span className="text-white/50">system call</span>
+              <span className="text-white/50">workflow call</span>
             </Heading>
             <Text className="text-white/70 max-w-md text-lg">
-              The fastest route is still a direct call. Use the fallback form only if you need to send context before we talk.
+              Use the call if you already know a workflow is breaking and your current automation stack cannot handle the real logic. Use the form only if you need to send context first.
             </Text>
           </Reveal>
         </div>
@@ -81,19 +81,19 @@ const Contact: React.FC = () => {
               onClick={() => trackEvent('cal_click', { source: 'contact_primary_card' })}
               className="block bg-white text-brand-ink border border-white/10 p-8 rounded-3xl hover:bg-white/90 transition-all duration-500 group"
             >
-              <span className="block font-sans text-sm font-medium tracking-tight text-brand-muted uppercase tracking-widest mb-2">Primary</span>
-              <span className="text-xl md:text-2xl font-sans font-medium tracking-tight">Schedule 30-minute system call</span>
+              <span className="block font-sans text-sm font-medium text-brand-muted uppercase tracking-widest mb-2">Primary</span>
+              <span className="text-xl md:text-2xl font-sans font-medium tracking-tight">Schedule 30-minute workflow call</span>
             </a>
           </Reveal>
           <Reveal delay={200}>
             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 group">
-              <span className="block font-sans text-sm font-medium tracking-tight text-white/50 uppercase tracking-widest mb-2">Email</span>
+              <span className="block font-sans text-sm font-medium text-white/50 uppercase tracking-widest mb-2">Email</span>
               <a href="mailto:info@okvalleyweb.com" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">info@okvalleyweb.com</a>
             </div>
           </Reveal>
           <Reveal delay={300}>
             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-all duration-500 group">
-              <span className="block font-sans text-sm font-medium tracking-tight text-white/50 uppercase tracking-widest mb-2">Phone</span>
+              <span className="block font-sans text-sm font-medium text-white/50 uppercase tracking-widest mb-2">Phone</span>
               <a href="tel:+17787694402" className="text-xl md:text-2xl font-sans font-medium text-white tracking-tight">(778) 769-4402</a>
             </div>
           </Reveal>
@@ -103,8 +103,10 @@ const Contact: React.FC = () => {
       <div className="lg:w-1/2 p-6 md:p-12 lg:p-24 bg-white relative flex flex-col justify-center">
         <Reveal delay={200}>
           <div className="mb-16">
-            <Heading level={2} className="tracking-tight mb-4">Send context before the call</Heading>
-            <p className="text-brand-muted font-sans text-lg">Use this only if the call is not the right first step. Keep it short and practical.</p>
+            <Heading level={2} className="tracking-tight mb-4">Send workflow context</Heading>
+            <p className="text-brand-muted font-sans text-lg">
+              Tell us what workflow keeps breaking, where your current automation stops helping, and whether this is for an agency or a business.
+            </p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -122,17 +124,22 @@ const Contact: React.FC = () => {
               <input type="tel" name="phone" placeholder="Phone Number" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted transition-colors" />
             </div>
             <div className="group relative">
-              <select name="inquiry" defaultValue="" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black appearance-none rounded-none text-brand-muted focus:text-brand-ink transition-colors cursor-pointer">
+              <select name="inquiry" defaultValue="" className="w-full text-xl md:text-2xl font-sans font-medium tracking-tight bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black appearance-none rounded-none text-brand-muted focus:text-brand-ink transition-colors cursor-pointer">
                 <option value="" disabled>What do you need?</option>
-                <option value="ai" className="text-base font-sans">AI Lead System Pilot</option>
-                <option value="web" className="text-base font-sans">Expansion Website</option>
-                <option value="seo" className="text-base font-sans">Search Expansion</option>
-                <option value="ads" className="text-base font-sans">Paid Demand Expansion</option>
-                <option value="other" className="text-base font-sans">Other Inquiry</option>
+                <option value="Agency AI Workflow Sprint" className="text-base font-sans">Agency AI Workflow Sprint</option>
+                <option value="Agency Internal Ops System" className="text-base font-sans">Agency Internal Ops System</option>
+                <option value="Business Workflow Agent" className="text-base font-sans">Business Workflow Agent</option>
+                <option value="Business Automation System" className="text-base font-sans">Business Automation System</option>
+                <option value="Other Inquiry" className="text-base font-sans">Other Inquiry</option>
               </select>
             </div>
             <div className="group relative">
-              <textarea name="message" placeholder="What is breaking in your current lead flow?" rows={4} className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted resize-none transition-colors"></textarea>
+              <textarea
+                name="message"
+                placeholder="What workflow is breaking, what tools are involved, and why is your current automation not enough?"
+                rows={5}
+                className="w-full text-lg font-sans font-medium tracking-tight text-brand-ink bg-transparent border-b border-black/10 py-4 focus:outline-none focus:border-black placeholder-brand-muted resize-none transition-colors"
+              ></textarea>
             </div>
 
             <p className="text-sm font-sans text-brand-muted">
