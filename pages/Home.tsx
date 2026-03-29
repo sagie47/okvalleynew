@@ -36,32 +36,32 @@ const Home: React.FC = () => {
     {
       id: "01",
       title: "AI Lead Systems",
-      desc: "Capture every opportunity. We build systems that instantly text back missed calls, qualify leads, and route them to your team.",
-      details: ["Missed-Call Text-Back", "Automated Follow-Up", "CRM & Pipeline Setup"],
+      desc: "Autonomous lead orchestration that converts incoming demand into assigned next actions in seconds.",
+      details: ["Missed-Call Text-Back", "Decision Rules", "CRM & Pipeline Routing"],
       metric: "Zero Missed Leads",
       img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800"
     },
     {
       id: "02",
       title: "Conversion Websites",
-      desc: "High-performance websites designed to turn local traffic into booked jobs. Fast, mobile-optimized, and built to rank.",
-      details: ["Lead Capture Forms", "Mobile-First Design", "Service Area Pages"],
+      desc: "High-performance websites engineered as revenue surfaces: intent-driven pages, fast pathing, and structured data capture.",
+      details: ["Lead Capture Forms", "Mobile-First Design", "Service Area Conversion Paths"],
       metric: "More Booked Jobs",
       img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
     },
     {
       id: "03",
       title: "Search Visibility",
-      desc: "Dominate your local market. We optimize your digital presence so customers find you first when they need a pro.",
-      details: ["Local SEO", "Google Business Profile", "Review Generation"],
+      desc: "Technical local-search systems that strengthen your digital reputation layer and increase high-intent discovery.",
+      details: ["Local SEO", "Google Business Profile", "Review Engine"],
       metric: "Top Local Ranking",
       img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
     },
     {
       id: "04",
       title: "Paid Lead Generation",
-      desc: "Targeted Google Ads campaigns that put your business in front of high-intent customers actively searching for your services.",
-      details: ["Google Local Services", "Search Ads", "Lead Tracking"],
+      desc: "Campaign systems built for accountability, using keyword experiments, safety filters, and lead-to-booking conversion measurement.",
+      details: ["Google Local Services", "Search Ads", "Lead Tracking & QA"],
       metric: "Max ROI",
       img: "https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800"
     }
@@ -93,7 +93,7 @@ const Home: React.FC = () => {
              <div className="flex items-center gap-3 mb-12">
                 <div className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></div>
                 <span className="font-sans text-sm font-medium tracking-tight text-white/70 uppercase tracking-widest">
-                   Kelowna, BC • Web & Automation
+                   Kelowna, BC • AI Systems + Growth
                 </span>
              </div>
           </Reveal>
@@ -109,7 +109,7 @@ const Home: React.FC = () => {
             <div className="md:col-span-6 lg:col-span-5">
               <Reveal delay={400}>
                 <Text size="xl" className="mb-12 text-white/70">
-                  We help local trades capture, qualify, and follow up with leads automatically. Fewer missed calls, faster response times, and more booked jobs.
+                  We build growth systems where marketing, automation, and execution logic work together. Less lead leakage, faster response, more booked jobs.
                 </Text>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button to={RoutePath.CONTACT} className="bg-white text-brand-ink hover:bg-white/90" icon>Book a Discovery Call</Button>
@@ -196,7 +196,7 @@ const Home: React.FC = () => {
           <span className="font-sans text-sm font-medium tracking-tight text-brand-muted mb-6 block">Capabilities</span>
           <Heading level={2} className="mb-8">Systems built for local trades.</Heading>
           <Text size="lg">
-            We build high-performance growth systems. AI automation is our main offer, supported by websites and search visibility to ensure you never miss a lead.
+            We start with the funnel as a system: capture, qualification logic, assignment, and follow-through. AI automates the repetitive layer so your team can close more jobs.
           </Text>
         </div>
 
@@ -234,7 +234,7 @@ const Home: React.FC = () => {
               <span className="text-white/50">losing leads?</span>
             </h2>
             <Text size="xl" className="text-white/70 mb-12 max-w-2xl mx-auto">
-              Let's discuss missed-call text-back, lead qualification, and setting up a CRM pipeline for your business.
+              Let's define your lead flow architecture: response guarantees, lead scoring rules, and channel mix for sustainable growth.
             </Text>
             <Button to={RoutePath.CONTACT} variant="secondary" className="bg-white text-brand-ink hover:bg-white/90" icon>
               Get an Automation Plan

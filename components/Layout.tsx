@@ -143,7 +143,7 @@ const Footer: React.FC = () => {
              <Reveal>
                <BrandLogo />
                <p className="font-sans text-2xl md:text-3xl font-medium leading-tight max-w-md tracking-tight mt-8 text-brand-ink">
-                 Automating local trades so you can focus on the work.
+                 Engineering AI growth systems for local operators.
                </p>
              </Reveal>
           </div>

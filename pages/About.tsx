@@ -16,81 +16,91 @@ const About: React.FC = () => {
     <>
       <PageHeader 
         title={<>About <br/>OK Valley Web</>}
-        subtitle="We build AI lead systems and high-performance websites for local trades who want to stop losing leads and start booking more jobs."
+        subtitle="We build AI lead systems and growth software for local service operators."
       />
 
       <Section className="bg-brand-muted/5">
-         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-            <div className="md:col-span-4">
-               <Reveal>
-                  <Heading level={4}>Our Story</Heading>
-               </Reveal>
-            </div>
-            <div className="md:col-span-8 space-y-8">
-               <Reveal delay={100}>
-                  <Text size="lg" className="text-brand-muted">Founded in Kelowna, BC, we've spent years helping local service businesses—plumbers, electricians, roofers, and landscapers—grow their operations.</Text>
-               </Reveal>
-               <Reveal delay={200}>
-                  <Text size="lg" className="text-brand-muted">We realized that getting traffic wasn't enough. Our clients were losing jobs because they couldn't answer the phone while on a job site. That's why we shifted our focus to AI lead systems.</Text>
-               </Reveal>
-               <Reveal delay={300}>
-                  <Text size="lg" className="text-brand-muted">Now, we build complete growth systems: websites that convert, SEO that drives traffic, and AI automation that ensures every lead gets a response in seconds.</Text>
-               </Reveal>
-            </div>
-         </div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          <div className="md:col-span-4">
+            <Reveal>
+              <Heading level={4}>Our Story</Heading>
+            </Reveal>
+          </div>
+          <div className="md:col-span-8 space-y-8">
+            <Reveal delay={100}>
+              <Text size="lg" className="text-brand-muted">
+                Founded in Kelowna, BC, we build growth systems for local service businesses in trades, from HVAC and plumbing to roofing and landscaping.
+              </Text>
+            </Reveal>
+            <Reveal delay={200}>
+              <Text size="lg" className="text-brand-muted">
+                We realized that traffic alone wasn't enough. Our clients were losing jobs because they could not answer the phone while on site. That changed us, and we shifted from campaign-only work to automated system design.
+              </Text>
+            </Reveal>
+            <Reveal delay={300}>
+              <Text size="lg" className="text-brand-muted">
+                Today we combine marketing strategy with software logic: websites that convert, SEO that compounds, and AI automation that turns intent into assigned next actions.
+              </Text>
+            </Reveal>
+            <Reveal delay={400}>
+              <Text size="lg" className="text-brand-muted">
+                We position every offer as a system with quality checks, instrumentation, and repeatable optimization loops for sustainable revenue growth.
+              </Text>
+            </Reveal>
+          </div>
+        </div>
       </Section>
 
       {/* Operational Reality Gallery */}
       <Section className="bg-white">
-         <div className="mb-20">
-            <Reveal>
-               <span className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-brand-accent mb-4 block">Our Work</span>
-               <Heading level={1} className="uppercase tracking-tighter">Built for Trades</Heading>
+        <div className="mb-20">
+          <Reveal>
+            <span className="font-sans text-[9px] font-bold uppercase tracking-[0.3em] text-brand-accent mb-4 block">Our Work</span>
+            <Heading level={1} className="uppercase tracking-tighter">Built for Trades</Heading>
+          </Reveal>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {galleryImages.map((img, i) => (
+            <Reveal key={i} delay={i * 100}>
+              <ImageFrame 
+                src={img.src} 
+                label={img.label} 
+                className={`${i % 2 === 0 ? 'aspect-[4/5]' : 'aspect-square'} shadow-lg`} 
+              />
             </Reveal>
-         </div>
-         
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {galleryImages.map((img, i) => (
-               <Reveal key={i} delay={i * 100}>
-                  <ImageFrame 
-                     src={img.src} 
-                     label={img.label} 
-                     className={`${i % 2 === 0 ? 'aspect-[4/5]' : 'aspect-square'} shadow-lg`} 
-                  />
-               </Reveal>
-            ))}
-         </div>
+          ))}
+        </div>
       </Section>
 
       <div className="bg-brand-muted/5 text-brand-ink py-24 px-6 md:px-12 relative overflow-hidden">
-        
         <Reveal>
-           <Heading level={2} className="mb-16 relative z-10 uppercase">Our Values</Heading>
+          <Heading level={2} className="mb-16 relative z-10 uppercase">Our Method</Heading>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-brand-muted/20 pt-12 relative z-10">
           {[
-             { title: "Client-Focused", desc: "We start with your business goals and design every interaction to serve them." },
-             { title: "Quality Craftsmanship", desc: "Clean code, thoughtful design, and meticulous QA on every launch." },
-             { title: "Continuous Innovation", desc: "We adopt the right modern tools (not trends) to keep you ahead." },
-             { title: "Transparency", desc: "Plain-language updates, clear milestones, and no hidden fees." },
-             { title: "Results-Driven", desc: "We optimize for conversions, PageSpeed, and organic visibility." },
-             { title: "Long-Term Partnerships", desc: "Ongoing support and iterative improvements after launch." }
+            { title: "Systems Thinking", desc: "We design growth as a state machine: capture, qualify, assign, follow, and report." },
+            { title: "Software Discipline", desc: "Clean code, reliable routing, and explicit logic for how leads move through your pipeline." },
+            { title: "Measurement-Led Growth", desc: "Build, test, evaluate, and improve across channels every cycle." },
+            { title: "AI Operations", desc: "Agentic workflows handle repetitive responses while your team focuses on delivery and relationships." },
+            { title: "Trust + Clarity", desc: "Transparent updates, clear milestones, and a clear accountability chain for every campaign." },
+            { title: "Commercial Expansion", desc: "Every project is designed to compound into predictable lead quality and higher booking confidence." }
           ].map((item, i) => (
-             <Reveal key={i} delay={i * 100} className="group">
-                <span className="block font-sans text-6xl font-bold text-brand-accent mb-4 opacity-30 group-hover:opacity-100 transition-opacity">0{i+1}</span>
-                <h3 className="text-xl font-sans font-bold uppercase mb-4 text-brand-ink">{item.title}</h3>
-                <p className="text-brand-muted font-sans max-w-sm">{item.desc}</p>
-             </Reveal>
+            <Reveal key={i} delay={i * 100} className="group">
+              <span className="block font-sans text-6xl font-bold text-brand-accent mb-4 opacity-30 group-hover:opacity-100 transition-opacity">0{i+1}</span>
+              <h3 className="text-xl font-sans font-bold uppercase mb-4 text-brand-ink">{item.title}</h3>
+              <p className="text-brand-muted font-sans max-w-sm">{item.desc}</p>
+            </Reveal>
           ))}
         </div>
       </div>
       
       <Section className="text-center py-48 bg-white border-t border-brand-muted/20">
-         <Reveal>
-            <Heading level={2} className="mb-6 uppercase">Ready to grow your business?</Heading>
-            <Text className="mx-auto mb-12 max-w-xl text-brand-muted">Let's discuss how an AI lead system and a high-converting website can help you book more jobs.</Text>
-            <Button to={RoutePath.CONTACT} variant="primary">Contact Us</Button>
-         </Reveal>
+        <Reveal>
+          <Heading level={2} className="mb-6 uppercase">Ready to grow your business?</Heading>
+          <Text className="mx-auto mb-12 max-w-xl text-brand-muted">Let's design your lead system architecture for faster response, better qualification, and more reliable growth.</Text>
+          <Button to={RoutePath.CONTACT} variant="primary">Contact Us</Button>
+        </Reveal>
       </Section>
     </>
   );

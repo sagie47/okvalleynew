@@ -9,7 +9,7 @@ const Pricing: React.FC = () => {
       <PageHeader 
         badge="Investment Models"
         title={<>Transparent <br/><span className="text-white/50">Pricing</span></>}
-        subtitle="Choose the model that fits your business. We offer pilot pricing for our AI systems and flexible options for conversion websites."
+        subtitle="Choose the system model that matches your growth plan. We pair automation architecture, website build, and monthly optimization into each offer."
       />
 
       <div className="px-6 md:px-12 py-32 bg-white">
@@ -28,7 +28,7 @@ const Pricing: React.FC = () => {
                   <span className="text-6xl font-sans font-bold tracking-tighter text-white">$1,500</span>
                   <span className="block font-sans text-[10px] uppercase tracking-widest text-white/50 mt-4">Pilot Setup Fee</span>
                 </div>
-                <p className="font-sans text-white/70 mb-12 min-h-[3rem] leading-relaxed">Stop losing leads to missed calls. We build the system, you close the deals.</p>
+                <p className="font-sans text-white/70 mb-12 min-h-[3rem] leading-relaxed">Stop losing high-intent demand. We build the response architecture; you focus on execution.</p>
                 
                 <div className="w-full h-px bg-white/10 mb-8"></div>
                 
@@ -53,7 +53,7 @@ const Pricing: React.FC = () => {
                 <span className="text-6xl font-sans font-bold tracking-tighter text-brand-ink">$3,800</span>
                 <span className="block font-sans text-[10px] uppercase tracking-widest text-brand-muted mt-4">+ $25/mo hosting</span>
               </div>
-              <p className="font-sans text-brand-muted mb-12 min-h-[3rem] leading-relaxed">Standard ownership model. Pay once, own the infrastructure forever.</p>
+              <p className="font-sans text-brand-muted mb-12 min-h-[3rem] leading-relaxed">High-performance site systems with conversion logic and lead handoff built to last.</p>
               
               <div className="w-full h-px bg-brand-ink/10 mb-8"></div>
               
@@ -77,7 +77,7 @@ const Pricing: React.FC = () => {
                 <span className="text-6xl font-sans font-bold tracking-tighter text-brand-ink">$175</span>
                 <span className="block font-sans text-[10px] uppercase tracking-widest text-brand-muted mt-4">Per Month / $0 Down</span>
               </div>
-              <p className="font-sans text-brand-muted mb-12 min-h-[3rem] leading-relaxed">Cashflow friendly. Includes everything, forever. Our most popular website model.</p>
+              <p className="font-sans text-brand-muted mb-12 min-h-[3rem] leading-relaxed">Cashflow friendly. Includes ongoing productized operations and continuous optimization.</p>
               
               <div className="w-full h-px bg-brand-ink/10 mb-8"></div>
               
